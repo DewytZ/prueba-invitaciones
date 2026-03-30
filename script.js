@@ -86,11 +86,11 @@ const iconoMusica = document.getElementById("icono-musica");
 btnMusica.onclick = () => {
     if (musica.paused) {
         musica.play();
-        iconoMusica.innerText = "⏸️"; // Cambia a pausa
+        iconoMusica.innerHTML = '<i class="fas fa-pause"></i>'; // Cambia a pausa
         btnMusica.classList.add("sonando");
     } else {
         musica.pause();
-        iconoMusica.innerText = "🎵"; // Cambia a nota musical
+        iconoMusica.innerHTML = '<i class="fas fa-music"></i>'; // Cambia a nota musical
         btnMusica.classList.remove("sonando");
     }
 };
@@ -99,7 +99,7 @@ btnMusica.onclick = () => {
 document.addEventListener('click', function() {
     if (musica.paused) {
         musica.play();
-        iconoMusica.innerText = "⏸️";
+        iconoMusica.innerHTML = '<i class="fas fa-pause"></i>';
         btnMusica.classList.add("sonando");
     }
 }, { once: true }); // 'once: true' asegura que esto solo pase una vez

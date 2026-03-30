@@ -306,6 +306,7 @@ input, textarea {
     border-radius: 10px; /* Bordes suaves */
     box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombrita sutil */
     border: 1px solid #f0e6d2; /* Bordecito crema */
+    background-color: white;
 }
 @media (min-width: 768px) {
     .contenedor-dresscode {
@@ -313,6 +314,7 @@ input, textarea {
         justify-content: center;
         text-align: left;
         gap: 40px;
+        background-color: white;
     }
 }
 
@@ -378,14 +380,4 @@ input, textarea {
 #btnMusica:hover {
     transform: scale(1.1);
     background-color: var(--crema);
-}
-
-/* Clase para cuando la música está sonando (animación opcional) */
-.sonando {
-    animation: rotar 4s linear infinite;
-}
-
-@keyframes rotar {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
 }
