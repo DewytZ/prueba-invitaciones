@@ -1,0 +1,391 @@
+/* RESET PARA EVITAR LA BARRA BLANCA */
+* {
+    box-sizing: border-box; /* Evita que el padding sume ancho extra */
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    overflow-x: hidden; /* Corta cualquier cosa que se salga por la derecha */
+    width: 100%;
+    position: relative;
+}
+/* Configuración General */
+:root {
+    --oro: #B59410;
+    --crema: #FCF9F5;
+    --verde: #4A5D4E;
+    --texto: #333;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--texto);
+    background-color: var(--crema);
+    line-height: 1.6;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+}
+
+/* 1. La Portada con el efecto de ventana */
+.hero {
+    height: 100vh;
+    /* Imagen de fondo */
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                url('https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg');
+    background-size: cover;
+    background-position: center;
+    
+    /* ESTO ES LO QUE BUSCAS: Se queda quieta solo dentro de su contenedor */
+    background-attachment: fixed;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+/* 2. IMPORTANTE: Aseguramos que las secciones de abajo tengan fondo blanco sólido */
+.seccion {
+    padding: 80px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    background-color: white; /* Esto "tapa" la imagen al subir */
+    position: relative;      /* Asegura que el bloque esté por encima */
+}
+
+/* El contenedor del reloj también debe ser blanco */
+#reloj {
+    background-color: white;
+    padding-top: 30px; /* Un poco de espacio para que no choque con la imagen */
+}
+
+.hero h1 { font-size: 3.5rem; margin: 10px 0;
+    animation: aparecerFlotando 4s ease-out;
+}
+@keyframes aparecerFlotando {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+        filter: blur(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+        0% { opacity: 0; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+.subtitulo{ letter-spacing: 5px; font-size: 0.9rem;
+    animation: aparecerSuave 2s ease-out;
+}
+@keyframes aparecerSuave {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+        filter: blur(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+        0% { opacity: 0; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.frase-bonita{
+    background-color: white;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 30px;
+}
+
+.fecha-boda{ letter-spacing: 5px; font-size: 0.9rem;
+    animation: aparecerSuave 2s ease-out;
+}
+@keyframes aparecerSuave {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+        filter: blur(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+        0% { opacity: 0; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Secciones */
+.seccion {
+    padding: 30px 20px;
+    text-align: center;
+    width: 100%; /* Asegura que no sea más grande que el body */
+    max-width: 100%; /* Candado extra */
+    margin: auto;
+    background-color: white;
+    box-sizing: border-box; /* Fundamental */
+}
+
+.itinerario .evento {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+/* Botones */
+.btn-principal {
+    background-color: var(--oro);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    animation: pulso 2s infinite;
+    margin-bottom: 100px;
+    margin-top: 10px;
+}
+@keyframes pulso {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(74, 93, 78, 0.4); }
+    100% { transform: scale(1); }
+}
+
+.btn-secundario {
+    text-decoration: none;
+    color: var(--oro);
+    font-weight: bold;
+    border: 1px solid var(--oro);
+    padding: 10px 20px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Estilos del Modal (Igual que antes pero con diseño de boda) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-contenido {
+    background: white;
+    margin: 10% auto;
+    padding: 40px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.exito-texto { color: var(--verde); font-weight: bold; margin-top: 15px; }
+.cerrar { position: absolute; right: 20px; top: 10px; font-size: 30px; cursor: pointer; }
+
+/* Estilos del Reloj */
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.tiempo {
+    background: white;
+    padding: 15px 5px;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #f0e6d2; /* Un toque crema/dorado */
+    text-align: center;
+}
+
+.tiempo span {
+    display: block;
+    font-size: 1.8rem;
+    font-family: 'Playfair Display', serif;
+    color: var(--oro);
+    font-weight: bold;
+}
+
+.tiempo p {
+    margin: 0;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--verde);
+    white-space: nowrap;
+}
+
+/* Responsivo para celulares */
+@media (max-width: 480px) {
+    .countdown-container {
+        gap: 8px; /* Reducimos el espacio entre cajas */
+        padding: 0 10px; /* Margen interno para que no pegue a los bordes */
+    }
+    
+    .tiempo {
+        padding: 10px 5px;
+        min-width: 70px; /* Un poquito más angostas */
+        flex: 1; /* Esto hace que se repartan el ancho disponible equitativamente */
+    }
+    
+    .tiempo span {
+        font-size: 1.2rem; /* Números un poco más pequeños para que quepan */
+    }
+}
+/* Solo para pantallas grandes (computadoras) */
+@media (min-width: 1024px) {
+    .hero {
+        background-attachment: fixed;
+    }
+}
+
+/* Para celulares (donde 'fixed' falla), la imagen se moverá normal */
+@media (max-width: 1023px) {
+    .hero {
+        background-attachment: scroll;
+    }
+}
+@media (max-width: 360px) {
+    .tiempo span {
+        font-size: 1.4rem; /* Encogemos el número un poco más */
+    }
+    .tiempo p {
+        font-size: 0.55rem; /* El tamaño mínimo legible */
+        letter-spacing: 0;
+    }
+    .countdown-container {
+        gap: 5px;
+    }
+}
+
+.contenedor-dresscode {
+    display: flex;
+    flex-direction: column; /* Por defecto en columna para móvil */
+    align-items: center;
+    gap: 20px;
+}
+.img-dresscode {
+    width: 100%;
+    max-width: 400px; /* Ancho máximo para que no se vea gigante */
+    height: auto;
+    border-radius: 10px; /* Bordes suaves */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombrita sutil */
+    border: 1px solid #f0e6d2; /* Bordecito crema */
+}
+@media (min-width: 768px) {
+    .contenedor-dresscode {
+        flex-direction: row; /* Imagen y texto lado a lado en PC */
+        justify-content: center;
+        text-align: left;
+        gap: 40px;
+    }
+}
+
+#btnEnviar {
+    background-color: var(--oro); /* Color dorado que definimos */
+    color: white;
+    padding: 15px 20px;
+    width: 100%; /* Que ocupe todo el ancho del formulario */
+    border: none;
+    border-radius: 4px; /* Un toque sutil, no tan circular para que se vea serio */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(181, 148, 16, 0.2); /* Sombra dorada suave */
+}
+
+/* Efecto al pasar el mouse */
+#btnEnviar:hover {
+    background-color: var(--verde); /* Cambia a verde oliva al pasar el mouse */
+    letter-spacing: 5px; /* Se expande un poquito, muy elegante */
+    box-shadow: 0 6px 12px rgba(74, 93, 78, 0.3);
+}
+
+/* Cuando el botón está enviando (deshabilitado) */
+#btnEnviar:disabled {
+    background-color: #d1d1d1;
+    color: #888;
+    cursor: not-allowed;
+    letter-spacing: 2px;
+    box-shadow: none;
+}
+#btnEnviar:active {
+    transform: scale(0.98);
+}
+
+.musica-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1001; /* Por encima de todo */
+}
+
+#btnMusica {
+    background-color: white;
+    border: 1px solid var(--oro);
+    color: var(--oro);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+#btnMusica:hover {
+    transform: scale(1.1);
+    background-color: var(--crema);
+}
+
+/* Clase para cuando la música está sonando (animación opcional) */
+.sonando {
+    animation: rotar 4s linear infinite;
+}
+
+@keyframes rotar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
