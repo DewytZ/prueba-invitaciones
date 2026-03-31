@@ -24,6 +24,9 @@
         <h2>Será un honor para nosotros compartir este día tan importante con ustedes</h2>
     </section>
 
+
+
+
     <section id="reloj" class="seccion">
     <h2 data-aos="fade-up">Faltan solo...</h2>
     <div class="countdown-container"data-aos="fade-up">
@@ -46,6 +49,27 @@
     </div>
 </section>
 
+
+    <section class="seccion carrusel-seccion" data-aos="fade-up">
+    <h2>Nuestros Momentos</h2>
+    <div class="carrusel-contenedor">
+        <div class="carrusel-slides" id="slides">
+            <div class="slide"><img src="https://images.squarespace-cdn.com/content/v1/56216fc2e4b059c47b425496/6844187a-27be-435c-bff2-b45cf6812526/Ideas+sesi%C3%B3n+de+novios" alt="Foto 1"></div>
+            <div class="slide"><img src="https://i.pinimg.com/736x/75/b4/32/75b432d2ffb2ad1df3a60390f9577c2a.jpg" alt="Foto 2"></div>
+            <div class="slide"><img src="https://gregdotel.com/wp-content/uploads/2019/05/fotografo-paola-robert-bodas-sesion-novios-jardin-botanico-nacional-santo-domingo-republica-dominicana7.jpg" alt="Foto 3"></div>
+        </div>
+
+        <button class="flecha prev" onclick="moverCarrusel(-1)">&#10094;</button>
+        <button class="flecha next" onclick="moverCarrusel(1)">&#10095;</button>
+
+        <div class="puntos-container">
+            <span class="punto activo" onclick="irASlide(0)"></span>
+            <span class="punto" onclick="irASlide(1)"></span>
+            <span class="punto" onclick="irASlide(2)"></span>
+        </div>
+    </div>
+</section>
+
     <section class="seccion itinerario">
         <h2 data-aos="fade-up">Itinerario</h2>
         <div class="linea-tiempo">
@@ -62,18 +86,31 @@
             <div class="evento"data-aos="fade-up">
                 <h3>20:30 HRS</h3>
                 <p>Vals</p>
+                <div class="itinerario-portafoto" data-aos="zoom-in" data-aos-delay="200">
+                <img src="https://img.freepik.com/vector-premium/icono-figura-palo-pareja-baile-pictograma-salon-baile-negro-vals-tango-bailando-hombre-mujer_253081-1330.jpg?w=360" alt="Nuestra foto del vals" class="img-vals-itinerario">
             </div>
+            </div>
+            
             <div class="evento"data-aos="fade-up">
                 <h3>22:00 HRS</h3>
                 <p>Cena</p>
+                <div class="itinerario-portafoto" data-aos="zoom-in" data-aos-delay="200">
+                <img src="https://cdn-icons-png.flaticon.com/512/851/851603.png" alt="Nuestra foto del vals" class="img-vals-itinerario">
+            </div>
             </div>
             <div class="evento"data-aos="fade-up">
                 <h3>23:00 HRS</h3>
                 <p>Pastel</p>
+                <div class="itinerario-portafoto" data-aos="zoom-in" data-aos-delay="200">
+                <img src="https://st4.depositphotos.com/5934840/28349/v/950/depositphotos_283491122-stock-illustration-wedding-cake-cartoon-isolated-in.jpg" alt="Nuestra foto del vals" class="img-vals-itinerario">
+            </div>
             </div>
             <div class="evento"data-aos="fade-up">
                 <h3>23:30 HRS</h3>
                 <p>Fiesta</p>
+                <div class="itinerario-portafoto" data-aos="zoom-in" data-aos-delay="200">
+                <img src="https://cdn-icons-png.flaticon.com/512/3656/3656889.png" alt="Nuestra foto del vals" class="img-vals-itinerario">
+            </div>
             </div>
         </div>
     </section>
@@ -98,7 +135,12 @@
             <h2>Confirma tu asistencia</h2>
             
             <form id="miFormulario">
-                <input type="number" name="asistentes" placeholder="Número de asistentes:" min="1" max="3" required>
+                <select name="asistentes" id="asistentes" required>
+                    <option value="" disabled selected>Número de asistentes:</option>
+                    <option value="1">1 persona</option>
+                    <option value="2">2 personas</option>
+                    <option value="3">3 personas</option>
+                </select>
                 <input type="text" name="nombre" placeholder="Nombre de asistentes:" required>
                 <input type="tel" name="numero" placeholder="Teléfono" required>
                 <textarea name="mensaje" placeholder="Mensaje para los novios (Opcional)"></textarea>

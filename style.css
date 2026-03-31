@@ -381,3 +381,125 @@ input, textarea {
     transform: scale(1.1);
     background-color: var(--crema);
 }
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--texto);
+    cursor: pointer;
+    /* Esto quita la apariencia interna por defecto de algunos navegadores */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* Añadimos una flechita personalizada (opcional) */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B59410' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 15px;
+}
+
+/* Efecto al seleccionar */
+select:focus {
+    outline: none;
+    border-color: var(--oro);
+    box-shadow: 0 0 5px rgba(181, 148, 16, 0.2);
+}
+
+.carrusel-contenedor {
+    position: relative;
+    max-width: 600px; /* Tamaño ideal para móvil y PC */
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.carrusel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* La magia del movimiento */
+}
+
+.slide {
+    min-width: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover; /* Para que las fotos no se deformen */
+    display: block;
+}
+
+/* Flechas */
+.flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.7);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--verde);
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.flecha:hover { background: white; color: var(--oro); }
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Puntos */
+.puntos-container {
+    text-align: center;
+    padding: 15px;
+    background: white;
+}
+
+.punto {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.punto.activo { background-color: var(--oro); transform: scale(1.3); }
+
+
+/* --- ESTILOS PARA LA FOTO DEL VALS EN EL ITINERARIO --- */
+
+/* Contenedor para asegurar el centrado absoluto */
+.itinerario-portafoto {
+    display: flex;
+    justify-content: center; /* Centrado horizontal con flexbox */
+    align-items: center;
+    width: 100%;
+    margin: px 0; /* Espaciado generoso arriba y abajo para que respire */
+    padding: 0 0px; /* Margen de seguridad para que no pegue a los bordes en móvil */
+    box-sizing: border-box; /* Vital para que el padding no sume ancho */
+}
+
+/* Estilo de la imagen ("Buen tamaño" y responsiva) */
+.img-vals-itinerario {
+    width: 100%; /* En celulares pequeños, ocupa el ancho del contenedor */
+    max-width: 75px; /* "Buen tamaño" máximo para PC (ni muy grande ni muy chica) */
+    height: auto; /* Mantiene la proporción de la foto siempre */
+    
+    /* Estética Premium (igual a las otras fotos de la web) */
+    border-radius: 15px; /* Bordes redondeados suaves */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Sombra elegante para profundidad */
+    border: 2px solid #f0e6d2; /* Bordecito crema/oro a juego con el diseño */
+    
+    /* Asegura que si la foto es muy alta, se recorte sutilmente y no se estire */
+    object-fit: cover;
+    display: block; /* Elimina espacios extraños debajo de la imagen */
+}

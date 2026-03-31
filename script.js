@@ -103,3 +103,37 @@ document.addEventListener('click', function() {
         btnMusica.classList.add("sonando");
     }
 }, { once: true }); // 'once: true' asegura que esto solo pase una vez
+
+
+let slideIndex = 0;
+
+function actualizarCarrusel() {
+    const slides = document.getElementById("slides");
+    const puntos = document.querySelectorAll(".punto");
+    const totalSlides = document.querySelectorAll(".slide").length;
+
+    // Reiniciar si llega al final o al principio
+    if (slideIndex >= totalSlides) slideIndex = 0;
+    if (slideIndex < 0) slideIndex = totalSlides - 1;
+
+    // Mover la "cinta" de imágenes
+    slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+
+    // Actualizar puntos
+    puntos.forEach((p, i) => {
+        p.classList.toggle("activo", i === slideIndex);
+    });
+}
+
+function moverCarrusel(n) {
+    slideIndex += n;
+    actualizarCarrusel();
+}
+
+function irASlide(n) {
+    slideIndex = n;
+    actualizarCarrusel();
+}
+
+// Opcional: Auto-play cada 5 segundos
+setInterval(() => moverCarrusel(1), 5000);
